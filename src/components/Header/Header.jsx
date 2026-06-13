@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 
 import HeaderLogo from "../../assets/images/header-logo.png";
@@ -13,11 +13,40 @@ const navLinks = [
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 80);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const textColor = isScrolled ? "text-black" : "text-black";
+  const lineColor = isScrolled ? "bg-black" : "bg-black";
 
   return (
-    <header className="fixed left-0 top-0 z-[999] w-full font-['Montserrat']">
-      <div className="mx-auto flex max-w-[1720px] items-center justify-between px-8 py-6">
-        <Link to="/" onClick={() => setIsOpen(false)} className="relative z-[1000]">
+    <header
+      className={`fixed left-0 top-0 z-[999] w-full font-['Montserrat'] transition-all duration-500 ${
+        isScrolled
+          ? "bg-white/90 shadow-[0_1px_20px_rgba(0,0,0,0.06)] backdrop-blur-md"
+          : "bg-transparent"
+      }`}
+    >
+      <div
+        className={`mx-auto flex max-w-[1720px] items-center justify-between px-8 transition-all duration-500 ${
+          isScrolled ? "py-4" : "py-6"
+        }`}
+      >
+        <Link
+          to="/"
+          onClick={() => setIsOpen(false)}
+          className="relative z-[1000]"
+        >
           <img src={HeaderLogo} alt="EXFRAG" className="w-[92px]" />
         </Link>
 
@@ -27,13 +56,15 @@ export default function Header() {
               key={link.title}
               to={link.path}
               className={({ isActive }) =>
-                `group relative text-[10px] font-medium uppercase tracking-[0.32em] text-white transition-opacity duration-300 ${
-                  isActive ? "opacity-100" : "opacity-75 hover:opacity-100"
+                `group relative text-[10px] font-medium uppercase tracking-[0.32em] ${textColor} transition-opacity duration-300 ${
+                  isActive ? "opacity-100" : "opacity-70 hover:opacity-100"
                 }`
               }
             >
               {link.title}
-              <span className="absolute -bottom-2 left-0 h-px w-0 bg-white transition-all duration-300 group-hover:w-full" />
+              <span
+                className={`absolute -bottom-2 left-0 h-px w-0 ${lineColor} transition-all duration-300 group-hover:w-full`}
+              />
             </NavLink>
           ))}
         </nav>
@@ -48,10 +79,12 @@ export default function Header() {
               href={href}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative text-[10px] font-medium uppercase tracking-[0.32em] text-white opacity-75 transition-opacity duration-300 hover:opacity-100"
+              className={`group relative text-[10px] font-medium uppercase tracking-[0.32em] ${textColor} opacity-70 transition-opacity duration-300 hover:opacity-100`}
             >
               {title}
-              <span className="absolute -bottom-2 left-0 h-px w-0 bg-white transition-all duration-300 group-hover:w-full" />
+              <span
+                className={`absolute -bottom-2 left-0 h-px w-0 ${lineColor} transition-all duration-300 group-hover:w-full`}
+              />
             </a>
           ))}
         </div>
@@ -63,13 +96,13 @@ export default function Header() {
           aria-label="Toggle menu"
         >
           <span
-            className={`absolute h-[2px] w-8 bg-white transition-all duration-300 ${
-              isOpen ? "rotate-45" : "-translate-y-1.5"
+            className={`absolute h-[2px] w-8 transition-all duration-300 ${
+              isOpen ? "rotate-45 bg-white" : "-translate-y-1.5 bg-black"
             }`}
           />
           <span
-            className={`absolute h-[2px] w-8 bg-white transition-all duration-300 ${
-              isOpen ? "-rotate-45" : "translate-y-1.5"
+            className={`absolute h-[2px] w-8 transition-all duration-300 ${
+              isOpen ? "-rotate-45 bg-white" : "translate-y-1.5 bg-black"
             }`}
           />
         </button>

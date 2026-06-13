@@ -4,6 +4,7 @@ import App from "../app/App";
 
 import Home from "../pages/Home/Home";
 import Catalog from "../pages/Catalog/Catalog";
+import Product from "../pages/Product/Product";
 import About from "../pages/About/About";
 import Gallery from "../pages/Gallery/Gallery";
 import Contact from "../pages/Contact/Contact";
@@ -15,6 +16,7 @@ export const router = createBrowserRouter([
     children: [
       { index: true, element: <Home /> },
       { path: "catalog", element: <Catalog /> },
+      { path: "product/:slug", element: <Product /> },
       { path: "about", element: <About /> },
       { path: "gallery", element: <Gallery /> },
       { path: "contact", element: <Contact /> },
