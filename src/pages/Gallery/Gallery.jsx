@@ -1,20 +1,19 @@
 import { useState } from "react";
 
-import ImgOne from "../../assets/products/1-1.png";
-import ImgTwo from "../../assets/products/1-2.png";
-import ImgThree from "../../assets/products/1-3.png";
+import ImgOne from "../../assets/images/gallery/gallery1.png";
+import ImgTwo from "../../assets/images/gallery/gallery2.png";
+import ImgThree from "../../assets/images/gallery/gallery3.png";
+import ImgFour from "../../assets/images/gallery/gallery4.png";
+import ImgFive from "../../assets/images/gallery/gallery5.png";
+import ImgSix from "../../assets/images/gallery/gallery6.png";
 
 const galleryImages = [
   ImgOne,
   ImgTwo,
   ImgThree,
-  ImgOne,
-  ImgThree,
-  ImgTwo,
-  ImgOne,
-  ImgTwo,
-  ImgThree,
-  ImgOne,
+  ImgFour,
+  ImgFive,
+  ImgSix,
 ];
 
 export default function Gallery() {
