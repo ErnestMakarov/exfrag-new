@@ -72,10 +72,10 @@ export default function CatalogPreview() {
                 key={filter.value}
                 type="button"
                 onClick={() => setActiveMaterial(filter.value)}
-                className={`border px-4 py-2 text-[10px] uppercase tracking-[0.16em] transition-all duration-300 ${
+                className={`border px-5 py-2.5 text-[10px] font-medium uppercase tracking-[0.18em] transition-all duration-300 ${
                   activeMaterial === filter.value
                     ? "border-black bg-black text-white"
-                    : "border-black/15 text-black/60 hover:border-black hover:text-black"
+                    : "border-black/20 text-black/80 hover:border-black hover:text-black"
                 }`}
               >
                 {filter.label}

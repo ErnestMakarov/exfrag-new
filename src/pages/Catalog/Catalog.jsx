@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import { products } from "../../data/products";
+import { soldProducts } from "../../data/soldProducts";
 import ProductCard from "../../components/ProductCard/ProductCard";
 
 const categories = ["all", "tops", "bottoms", "bags", "outerwear", "accessories"];
@@ -15,15 +16,19 @@ export default function Catalog() {
   const [activeCategory, setActiveCategory] = useState("all");
   const [activeMaterial, setActiveMaterial] = useState("all");
 
-  const filteredProducts = products.filter((product) => {
-    const categoryMatch =
-      activeCategory === "all" || product.category === activeCategory;
+  const filterProducts = (items) =>
+    items.filter((product) => {
+      const categoryMatch =
+        activeCategory === "all" || product.category === activeCategory;
 
-    const materialMatch =
-      activeMaterial === "all" || product.materialOrigin === activeMaterial;
+      const materialMatch =
+        activeMaterial === "all" || product.materialOrigin === activeMaterial;
 
-    return categoryMatch && materialMatch;
-  });
+      return categoryMatch && materialMatch;
+    });
+
+  const availableItems = filterProducts(products);
+  const soldItems = filterProducts(soldProducts);
 
   return (
     <section className="bg-white px-6 py-32 text-black md:px-10">
@@ -36,7 +41,7 @@ export default function Catalog() {
               </h1>
 
               <p className="mt-4 text-[11px] italic uppercase opacity-60">
-                All archive pieces
+                Available archive pieces
               </p>
             </div>
 
@@ -64,10 +69,10 @@ export default function Catalog() {
                 key={filter.value}
                 type="button"
                 onClick={() => setActiveMaterial(filter.value)}
-                className={`border px-4 py-2 text-[10px] uppercase tracking-[0.16em] transition-all duration-300 ${
+                className={`border px-5 py-2.5 text-[10px] font-medium uppercase tracking-[0.18em] transition-all duration-300 ${
                   activeMaterial === filter.value
                     ? "border-black bg-black text-white"
-                    : "border-black/15 text-black/60 hover:border-black hover:text-black"
+                    : "border-black/20 text-black/80 hover:border-black hover:text-black"
                 }`}
               >
                 {filter.label}
@@ -76,17 +81,31 @@ export default function Catalog() {
           </div>
         </div>
 
-        {filteredProducts.length > 0 ? (
-          <div className="grid grid-cols-2 gap-5 md:grid-cols-3 md:gap-8 xl:grid-cols-4">
-            {filteredProducts.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </div>
-        ) : (
-          <div className="flex min-h-[300px] items-center justify-center border border-black/10">
-            <p className="text-[11px] uppercase tracking-[0.2em] opacity-50">
-              No pieces found
-            </p>
+        <div className="grid grid-cols-2 gap-5 md:grid-cols-3 md:gap-8 xl:grid-cols-4">
+          {availableItems.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+        </div>
+
+        {soldItems.length > 0 && (
+          <div className="mt-24 border-t border-black/10 pt-14">
+            <div className="mb-10 max-w-[620px]">
+              <h2 className="text-[16px] font-medium uppercase tracking-[0.18em]">
+                Sold archive pieces
+              </h2>
+
+              <p className="mt-5 text-[12px] uppercase leading-7 tracking-[0.14em] opacity-60">
+                These pieces are no longer available. You can open any sold item
+                and request a similar reconstruction depending on available
+                materials.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 gap-5 md:grid-cols-3 md:gap-8 xl:grid-cols-4">
+              {soldItems.map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+            </div>
           </div>
         )}
       </div>

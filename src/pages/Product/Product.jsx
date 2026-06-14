@@ -1,18 +1,28 @@
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import emailjs from "@emailjs/browser";
 
 import { products } from "../../data/products";
+import { soldProducts } from "../../data/soldProducts";
 
 const materialOriginLabels = {
   reconstructed: "Reconstructed material",
   "new-fabric": "New fabric",
 };
 
+const SERVICE_ID = "service_o3f9qla";
+const TEMPLATE_ID = "template_qwvs75t";
+const PUBLIC_KEY = "FRg2d-gy8wK3aDlVA";
+
 export default function Product() {
   const { slug } = useParams();
-  const product = products.find((item) => item.slug === slug);
+
+  const allProducts = [...products, ...soldProducts];
+  const product = allProducts.find((item) => item.slug === slug);
 
   const [activeImage, setActiveImage] = useState(product?.images?.[0]);
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState("");
 
   if (!product) {
     return (
@@ -21,6 +31,39 @@ export default function Product() {
       </section>
     );
   }
+
+  const isSold = product.status === "Sold";
+
+  const handleRequest = async (event) => {
+    event.preventDefault();
+
+    if (!email) {
+      setStatus("Enter your email.");
+      return;
+    }
+
+    setStatus("Sending...");
+
+    try {
+      await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        {
+          from_name: "EXFRAG product request",
+          from_email: email,
+          message: `Request for similar piece: ${product.name}`,
+          product_name: product.name,
+          product_slug: product.slug,
+        },
+        PUBLIC_KEY
+      );
+
+      setStatus("Request sent.");
+      setEmail("");
+    } catch {
+      setStatus("Something went wrong.");
+    }
+  };
 
   return (
     <section className="min-h-screen bg-white px-6 py-28 text-black md:px-10">
@@ -53,12 +96,18 @@ export default function Product() {
               ))}
             </div>
 
-            <div className="flex min-h-[520px] items-center justify-center border border-black/10 p-8 md:p-10">
+            <div className="relative flex min-h-[520px] items-center justify-center border border-black/10 p-8 md:p-10">
               <img
                 src={activeImage}
                 alt={product.name}
                 className="max-h-[700px] w-full object-contain"
               />
+
+              {isSold && (
+                <span className="absolute left-8 top-8 bg-black px-5 py-2 text-[10px] font-medium uppercase tracking-[0.25em] text-white">
+                  Sold
+                </span>
+              )}
             </div>
           </div>
         </div>
@@ -77,9 +126,7 @@ export default function Product() {
           <div className="mt-5 flex flex-wrap gap-3">
             <span
               className={`text-[11px] uppercase tracking-[0.18em] ${
-                product.status === "In Stock"
-                  ? "text-green-700"
-                  : "text-red-700"
+                isSold ? "text-red-700" : "text-green-700"
               }`}
             >
               {product.status}
@@ -136,25 +183,62 @@ export default function Product() {
             </div>
           </div>
 
-          <div className="mt-8 flex flex-col gap-3">
-            <a
-              href={product.yagaUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex h-14 items-center justify-center bg-black text-[12px] font-medium uppercase tracking-[0.2em] text-white transition-opacity hover:opacity-80"
-            >
-              Buy on Yaga
-            </a>
+          {!isSold ? (
+            <div className="mt-8 flex flex-col gap-3">
+              <a
+                href={product.yagaUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-14 items-center justify-center bg-black text-[12px] font-medium uppercase tracking-[0.2em] text-white transition-opacity hover:opacity-80"
+              >
+                Buy on Yaga
+              </a>
 
-            <a
-              href={product.vintedUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex h-14 items-center justify-center border border-black text-[12px] font-medium uppercase tracking-[0.2em] transition-colors hover:bg-black hover:text-white"
+              <a
+                href={product.vintedUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-14 items-center justify-center border border-black text-[12px] font-medium uppercase tracking-[0.2em] transition-colors hover:bg-black hover:text-white"
+              >
+                Buy on Vinted
+              </a>
+            </div>
+          ) : (
+            <form
+              onSubmit={handleRequest}
+              className="mt-8 border border-black/10 p-6"
             >
-              Buy on Vinted
-            </a>
-          </div>
+              <h2 className="text-[12px] font-semibold uppercase tracking-[0.16em]">
+                Request similar piece
+              </h2>
+
+              <p className="mt-4 text-[13px] leading-6 opacity-60">
+                This piece is sold. Leave your email and we will let you know if
+                a similar reconstruction can be made.
+              </p>
+
+              <input
+                type="email"
+                placeholder="Your email"
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}
+                className="mt-6 w-full border-b border-black/20 bg-transparent py-3 text-[13px] outline-none placeholder:text-black/30 focus:border-black"
+              />
+
+              <button
+                type="submit"
+                className="mt-6 flex h-12 w-full items-center justify-center bg-black text-[11px] font-medium uppercase tracking-[0.22em] text-white transition-opacity hover:opacity-80"
+              >
+                Send request
+              </button>
+
+              {status && (
+                <p className="mt-4 text-[11px] uppercase tracking-[0.16em] opacity-60">
+                  {status}
+                </p>
+              )}
+            </form>
+          )}
         </div>
       </div>
     </section>
