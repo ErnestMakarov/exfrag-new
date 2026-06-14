@@ -18,3 +18,12 @@ html::-webkit-scrollbar-track {
 html::-webkit-scrollbar-thumb {
   background: #000; 
 }
+
+::selection {
+    background-color: #000;
+    color: #fff;
+}
+
+img {
+  user-select: none;
+}

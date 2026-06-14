@@ -26,28 +26,35 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const textColor = isScrolled ? "text-black" : "text-black";
-  const lineColor = isScrolled ? "bg-black" : "bg-black";
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? "hidden" : "";
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
 
   return (
     <header
       className={`fixed left-0 top-0 z-[999] w-full font-['Montserrat'] transition-all duration-500 ${
-        isScrolled
+        isScrolled && !isOpen
           ? "bg-white/90 shadow-[0_1px_20px_rgba(0,0,0,0.06)] backdrop-blur-md"
           : "bg-transparent"
       }`}
     >
       <div
-        className={`mx-auto flex max-w-[1720px] items-center justify-between px-8 transition-all duration-500 ${
-          isScrolled ? "py-4" : "py-6"
+        className={`relative z-[1000] mx-auto flex max-w-[1720px] items-center justify-between px-8 transition-all duration-500 ${
+          isScrolled && !isOpen ? "py-4" : "py-6"
         }`}
       >
-        <Link
-          to="/"
-          onClick={() => setIsOpen(false)}
-          className="relative z-[1000]"
-        >
-          <img src={HeaderLogo} alt="EXFRAG" className="w-[92px]" />
+        <Link to="/" onClick={() => setIsOpen(false)}>
+          <img
+            src={HeaderLogo}
+            alt="EXFRAG"
+            className={`w-[92px] transition duration-300 ${
+              isOpen ? "invert" : ""
+            }`}
+          />
         </Link>
 
         <nav className="hidden items-center gap-12 md:flex">
@@ -56,15 +63,13 @@ export default function Header() {
               key={link.title}
               to={link.path}
               className={({ isActive }) =>
-                `group relative text-[10px] font-medium uppercase tracking-[0.32em] ${textColor} transition-opacity duration-300 ${
+                `group relative text-[10px] font-medium uppercase tracking-[0.32em] text-black transition-opacity duration-300 ${
                   isActive ? "opacity-100" : "opacity-70 hover:opacity-100"
                 }`
               }
             >
               {link.title}
-              <span
-                className={`absolute -bottom-2 left-0 h-px w-0 ${lineColor} transition-all duration-300 group-hover:w-full`}
-              />
+              <span className="absolute -bottom-2 left-0 h-px w-0 bg-black transition-all duration-300 group-hover:w-full" />
             </NavLink>
           ))}
         </nav>
@@ -79,12 +84,10 @@ export default function Header() {
               href={href}
               target="_blank"
               rel="noopener noreferrer"
-              className={`group relative text-[10px] font-medium uppercase tracking-[0.32em] ${textColor} opacity-70 transition-opacity duration-300 hover:opacity-100`}
+              className="group relative text-[10px] font-medium uppercase tracking-[0.32em] text-black opacity-70 transition-opacity duration-300 hover:opacity-100"
             >
               {title}
-              <span
-                className={`absolute -bottom-2 left-0 h-px w-0 ${lineColor} transition-all duration-300 group-hover:w-full`}
-              />
+              <span className="absolute -bottom-2 left-0 h-px w-0 bg-black transition-all duration-300 group-hover:w-full" />
             </a>
           ))}
         </div>
@@ -92,7 +95,7 @@ export default function Header() {
         <button
           type="button"
           onClick={() => setIsOpen((prev) => !prev)}
-          className="relative z-[1000] flex h-9 w-9 items-center justify-center md:hidden"
+          className="relative z-[1001] flex h-9 w-9 items-center justify-center md:hidden"
           aria-label="Toggle menu"
         >
           <span
@@ -109,11 +112,11 @@ export default function Header() {
       </div>
 
       <div
-        className={`fixed inset-0 z-[998] flex flex-col bg-black/85 px-8 py-6 text-white backdrop-blur-sm transition-transform duration-500 md:hidden ${
+        className={`fixed inset-0 z-[998] flex h-dvh flex-col bg-black/85 px-8 text-white backdrop-blur-sm transition-transform duration-500 md:hidden ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <nav className="flex flex-1 flex-col items-center justify-center gap-6 text-[18px] font-medium uppercase tracking-[0.08em]">
+        <nav className="flex flex-1 flex-col items-center justify-center gap-6 text-[20px] font-semibold uppercase tracking-[0.08em]">
           {navLinks.map((link) => (
             <Link
               key={link.title}
@@ -126,7 +129,7 @@ export default function Header() {
           ))}
         </nav>
 
-        <div className="mb-8 flex justify-center gap-16 text-[16px] font-medium uppercase underline underline-offset-4">
+        <div className="mb-12 flex justify-center gap-16 text-[16px] font-medium uppercase underline underline-offset-4">
           <a
             href="https://www.vinted.pl/member/3129043410"
             target="_blank"
