@@ -20,7 +20,7 @@ export default function ProductCard({ product }) {
           <span>{product.size}</span>
         </div>
 
-        <p className="mt-2 font-bold">{product.price}$</p>
+        <p className="mt-2 font-bold">{product.price}€</p>
       </div>
     </Link>
   );

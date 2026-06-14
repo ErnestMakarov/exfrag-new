@@ -3,6 +3,11 @@ import { Link, useParams } from "react-router-dom";
 
 import { products } from "../../data/products";
 
+const materialOriginLabels = {
+  reconstructed: "Reconstructed material",
+  "new-fabric": "New fabric",
+};
+
 export default function Product() {
   const { slug } = useParams();
   const product = products.find((item) => item.slug === slug);
@@ -33,8 +38,9 @@ export default function Product() {
               {product.images.map((image) => (
                 <button
                   key={image}
+                  type="button"
                   onClick={() => setActiveImage(image)}
-                  className={`border ${
+                  className={`border transition-colors ${
                     activeImage === image ? "border-black" : "border-black/10"
                   }`}
                 >
@@ -47,7 +53,7 @@ export default function Product() {
               ))}
             </div>
 
-            <div className="flex min-h-[520px] items-center justify-center border border-black/10 p-10">
+            <div className="flex min-h-[520px] items-center justify-center border border-black/10 p-8 md:p-10">
               <img
                 src={activeImage}
                 alt={product.name}
@@ -62,26 +68,38 @@ export default function Product() {
             EXFRAG / {product.category}
           </p>
 
-          <h1 className="mt-5 text-[32px] font-medium uppercase tracking-[0.08em]">
+          <h1 className="mt-5 text-[30px] font-medium uppercase tracking-[0.12em] md:text-[36px]">
             {product.name}
           </h1>
 
-          <p className="mt-3 text-[20px] font-semibold">{product.price}€</p>
+          <p className="mt-4 text-[20px] font-semibold">{product.price}€</p>
 
-          <p
-            className={`mt-4 text-[11px] uppercase tracking-[0.18em] ${
-              product.status === "In Stock" ? "text-green-700" : "text-red-700"
-            }`}
-          >
-            {product.status}
-          </p>
+          <div className="mt-5 flex flex-wrap gap-3">
+            <span
+              className={`text-[11px] uppercase tracking-[0.18em] ${
+                product.status === "In Stock"
+                  ? "text-green-700"
+                  : "text-red-700"
+              }`}
+            >
+              {product.status}
+            </span>
+
+            <span className="text-[11px] uppercase tracking-[0.18em] opacity-50">
+              /
+            </span>
+
+            <span className="text-[11px] uppercase tracking-[0.18em] opacity-70">
+              {materialOriginLabels[product.materialOrigin]}
+            </span>
+          </div>
 
           <div className="mt-10">
             <h2 className="text-[12px] font-semibold uppercase tracking-[0.16em]">
               Description
             </h2>
 
-            <p className="mt-4 max-w-[420px] text-[13px] leading-6 opacity-70">
+            <p className="mt-4 max-w-[460px] text-[13px] leading-7 opacity-70">
               {product.description}
             </p>
           </div>
@@ -92,6 +110,12 @@ export default function Product() {
             </h2>
 
             <p className="mt-4 text-[13px] opacity-70">{product.materials}</p>
+
+            {product.originDescription && (
+              <p className="mt-3 max-w-[460px] text-[13px] leading-6 opacity-50">
+                {product.originDescription}
+              </p>
+            )}
           </div>
 
           <div className="mt-8">

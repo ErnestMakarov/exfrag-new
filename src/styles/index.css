@@ -27,3 +27,7 @@ html::-webkit-scrollbar-thumb {
 img {
   user-select: none;
 }
+
+li, ul, Link, a {
+  user-select: none;
+}
