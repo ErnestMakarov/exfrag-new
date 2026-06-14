@@ -2,7 +2,7 @@ import { useState } from "react";
 import emailjs from "@emailjs/browser";
 
 import ContactHeroImg from "../../assets/images/contact/contact-hero.png";
-import FooterDropImg from "../../assets/images/footer/footer-drop.png";
+import ContactImg from "../../assets/images/contact/contact-img.png";
 
 const SERVICE_ID = "service_o3f9qla";
 const TEMPLATE_ID = "template_qwvs75t";
@@ -202,7 +202,7 @@ export default function Contact() {
 
         <div className="relative min-h-[300px] overflow-hidden md:min-h-[430px]">
           <img
-            src={FooterDropImg}
+            src={ContactImg}
             alt=""
             className="absolute inset-0 h-full w-full object-cover opacity-75"
           />

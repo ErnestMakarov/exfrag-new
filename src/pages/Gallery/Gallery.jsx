@@ -35,7 +35,7 @@ export default function Gallery() {
   return (
     <>
       <section className="bg-white px-4 py-28 md:px-8">
-        <div className="mx-auto max-w-[1100px]">
+        <div className="mx-auto max-w-[1200px]">
           <div className="columns-2 gap-3 sm:columns-3 md:gap-4">
             {galleryImages.map((image, index) => (
               <div
