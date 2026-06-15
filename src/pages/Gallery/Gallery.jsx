@@ -6,6 +6,9 @@ import ImgThree from "../../assets/images/gallery/gallery3.png";
 import ImgFour from "../../assets/images/gallery/gallery4.png";
 import ImgFive from "../../assets/images/gallery/gallery5.png";
 import ImgSix from "../../assets/images/gallery/gallery6.png";
+import ImgSeven from "../../assets/images/about/about-first.png";
+import ImgEight from "../../assets/images/about/about-second.png";
+import ImgNine from "../../assets/images/about/about-third.png";
 
 const galleryImages = [
   ImgOne,
@@ -14,6 +17,9 @@ const galleryImages = [
   ImgFour,
   ImgFive,
   ImgSix,
+  ImgSeven,
+  ImgEight,
+  ImgNine,
 ];
 
 export default function Gallery() {

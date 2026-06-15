@@ -10,9 +10,9 @@ const materialOriginLabels = {
   "new-fabric": "New fabric",
 };
 
-const SERVICE_ID = "service_o3f9qla";
-const TEMPLATE_ID = "template_qwvs75t";
-const PUBLIC_KEY = "FRg2d-gy8wK3aDlVA";
+const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 export default function Product() {
   const { slug } = useParams();
