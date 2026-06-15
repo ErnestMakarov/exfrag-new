@@ -11,14 +11,19 @@ const navLinks = [
   { title: "CONTACT", path: "/contact" },
 ];
 
+const externalLinks = [
+  ["YAGA", "https://www.yaga.ee/exfrag"],
+  ["VINTED", "https://www.vinted.pl/member/3129043410"],
+  ["INSTAGRAM", "https://www.instagram.com/exfrag.eu"],
+  ["TIKTOK", "https://www.tiktok.com/@.exfrag"],
+];
+
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 80);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 80);
 
     handleScroll();
     window.addEventListener("scroll", handleScroll);
@@ -43,15 +48,15 @@ export default function Header() {
       }`}
     >
       <div
-        className={`relative z-[1000] mx-auto flex max-w-[1720px] items-center justify-between px-8 transition-all duration-500 ${
-          isScrolled && !isOpen ? "py-4" : "py-6"
+        className={`relative z-[1000] mx-auto flex max-w-[1720px] items-center justify-between px-6 transition-all duration-500 md:px-8 ${
+          isScrolled && !isOpen ? "py-3 md:py-4" : "py-4 md:py-6"
         }`}
       >
         <Link to="/" onClick={() => setIsOpen(false)}>
           <img
             src={HeaderLogo}
             alt="EXFRAG"
-            className={`w-[92px] transition duration-300 ${
+            className={`w-[82px] transition duration-300 md:w-[92px] ${
               isOpen ? "invert" : ""
             }`}
           />
@@ -75,10 +80,7 @@ export default function Header() {
         </nav>
 
         <div className="hidden items-center gap-10 md:flex">
-          {[
-            ["YAGA", "https://www.yaga.ee/exfrag"],
-            ["VINTED", "https://www.vinted.pl/member/3129043410"],
-          ].map(([title, href]) => (
+          {externalLinks.slice(0, 2).map(([title, href]) => (
             <a
               key={title}
               href={href}
@@ -95,16 +97,16 @@ export default function Header() {
         <button
           type="button"
           onClick={() => setIsOpen((prev) => !prev)}
-          className="relative z-[1001] flex h-9 w-9 items-center justify-center md:hidden"
+          className="relative z-[1001] flex h-8 w-8 items-center justify-center md:hidden"
           aria-label="Toggle menu"
         >
           <span
-            className={`absolute h-[2px] w-8 transition-all duration-300 ${
+            className={`absolute h-[2px] w-7 transition-all duration-500 ${
               isOpen ? "rotate-45 bg-white" : "-translate-y-1.5 bg-black"
             }`}
           />
           <span
-            className={`absolute h-[2px] w-8 transition-all duration-300 ${
+            className={`absolute h-[2px] w-7 transition-all duration-500 ${
               isOpen ? "-rotate-45 bg-white" : "translate-y-1.5 bg-black"
             }`}
           />
@@ -112,39 +114,41 @@ export default function Header() {
       </div>
 
       <div
-        className={`fixed inset-0 z-[998] flex h-dvh flex-col bg-black/85 px-8 text-white backdrop-blur-sm transition-transform duration-500 md:hidden ${
+        className={`fixed inset-0 z-[998] flex h-dvh flex-col overflow-hidden bg-black/90 px-6 text-white backdrop-blur-md transition-transform duration-500 md:hidden ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <nav className="flex flex-1 flex-col items-center justify-center gap-6 text-[20px] font-semibold uppercase tracking-[0.08em]">
-          {navLinks.map((link) => (
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.08),transparent_55%)]" />
+
+        <nav className="relative z-10 flex flex-1 flex-col items-center justify-center gap-6 text-[20px] font-medium uppercase tracking-[0.18em]">
+          {navLinks.map((link, index) => (
             <Link
               key={link.title}
               to={link.path}
               onClick={() => setIsOpen(false)}
-              className="transition-all duration-300 hover:tracking-[0.18em] hover:opacity-60"
+              className="group relative transition-all duration-300 hover:tracking-[0.24em] hover:opacity-70"
+              style={{ transitionDelay: `${index * 35}ms` }}
             >
               {link.title}
+              <span className="absolute -bottom-2 left-1/2 h-px w-0 -translate-x-1/2 bg-white transition-all duration-300 group-hover:w-full" />
             </Link>
           ))}
         </nav>
 
-        <div className="mb-12 flex justify-center gap-16 text-[16px] font-medium uppercase underline underline-offset-4">
-          <a
-            href="https://www.vinted.pl/member/3129043410"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            VINTED
-          </a>
-
-          <a
-            href="https://www.yaga.ee/exfrag"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            YAGA
-          </a>
+        <div className="relative z-10 mb-10 border-t border-white/10 pt-6">
+          <div className="grid grid-cols-2 gap-y-4 text-center text-[12px] font-medium uppercase tracking-[0.18em]">
+            {externalLinks.map(([title, href]) => (
+              <a
+                key={title}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline underline-offset-4 transition-opacity duration-300 hover:opacity-60"
+              >
+                {title}
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </header>
