@@ -44,9 +44,9 @@ export const products = [
   name: "Reconstructed Painted Denim",
   category: "bottoms",
   materialOrigin: "reconstructed",
-  date: "01.12.23",
+  date: "03.26",
   price: 79.99,
-  size: "S",
+  size: "M",
   status: "In Stock",
 
   image: product1,
@@ -61,14 +61,14 @@ export const products = [
     "Made from existing garments. Deconstructed, reshaped and rebuilt by hand.",
 
   measurements: {
-    waist: "TBA",
-    hips: "TBA",
-    length: "TBA",
-    legOpening: "TBA",
+    waist: "Unknown",
+    hips: "Unknown",
+    length: "Unknown",
+    legOpening: "Unknown",
   },
 
   yagaUrl: "https://www.yaga.ee/exfrag/toode/tfd6ebrlrt",
-  vintedUrl: "https://www.vinted.pl/member/3129043410",
+  vintedUrl: "https://www.vinted.pl/items/8109026130-swag-jeans",
 },
 {
   id: 2,
@@ -76,7 +76,7 @@ export const products = [
   name: "Reconstructed Camo Denim",
   category: "bottoms",
   materialOrigin: "reconstructed",
-  date: "01.12.23",
+  date: "03.26",
   price: 79.99,
   size: "M",
   status: "In Stock",
@@ -93,14 +93,14 @@ export const products = [
     "Made from existing garments and textile fragments. Cut apart, reassembled and rebuilt into a new one-of-a-kind piece.",
 
   measurements: {
-    waist: "TBA",
-    hips: "TBA",
-    length: "TBA",
-    legOpening: "TBA",
+    waist: "Unknown",
+    hips: "Unknown",
+    length: "Unknown",
+    legOpening: "Unknown",
   },
 
-  yagaUrl: "https://www.yaga.ee/exfrag",
-  vintedUrl: "https://www.vinted.pl/member/3129043410",
+  yagaUrl: "https://www.yaga.ee/exfrag/toode/09rq5t9hqa",
+  vintedUrl: "https://www.vinted.pl/items/8109005920-swag-jeans",
 },
 {
   id: 3,
@@ -108,8 +108,8 @@ export const products = [
   name: "Reconstructed Bone Denim",
   category: "bottoms",
   materialOrigin: "reconstructed",
-  date: "01.12.23",
-  price: 79.99,
+  date: "02.26",
+  price: 59.99,
   size: "M",
   status: "In Stock",
 
@@ -130,8 +130,8 @@ export const products = [
     length: "112cm",
   },
 
-  yagaUrl: "https://www.yaga.ee/exfrag",
-  vintedUrl: "https://www.vinted.pl/member/3129043410",
+  yagaUrl: "https://www.yaga.ee/exfrag/toode/3o1g96fmj9g",
+  vintedUrl: "https://www.vinted.pl/items/9184955686-archive-jeans",
 },
 {
   id: 4,
@@ -139,9 +139,9 @@ export const products = [
   name: "Reconstructed Black Denim",
   category: "bottoms",
   materialOrigin: "reconstructed",
-  date: "01.12.23",
-  price: 79.99,
-  size: "M",
+  date: "02.26",
+  price: 59.99,
+  size: "L",
   status: "In Stock",
 
   image: product4,
@@ -156,13 +156,14 @@ export const products = [
     "Built from existing garments and reworked by hand.",
 
   measurements: {
-    waist: "80cm",
-    hips: "100cm",
+    waist: "90cm",
+    hips: "95cm",
     length: "112cm",
+    Hem: "70cm",
   },
 
-  yagaUrl: "https://www.yaga.ee/exfrag",
-  vintedUrl: "https://www.vinted.pl/member/3129043410",
+  yagaUrl: "https://www.yaga.ee/exfrag/toode/aaiqo7qraq8",
+  vintedUrl: "https://www.vinted.pl/items/7902583562-archive-jeans",
 },
 {
   id: 5,
@@ -170,9 +171,9 @@ export const products = [
   name: "Studded Archive Bag",
   category: "bags",
   materialOrigin: "reconstructed",
-  date: "01.12.23",
-  price: 79.99,
-  size: "M",
+  date: "05.26",
+  price: 49.99,
+  size: "L",
   status: "In Stock",
 
   image: product5,
@@ -187,13 +188,12 @@ export const products = [
     "Built from reclaimed materials and finished by hand.",
 
   measurements: {
-    waist: "80cm",
-    hips: "100cm",
-    length: "112cm",
+    width: "Unknown",
+    height: "Unknown",
   },
 
-  yagaUrl: "https://www.yaga.ee/exfrag",
-  vintedUrl: "https://www.vinted.pl/member/3129043410",
+  yagaUrl: "https://www.yaga.ee/exfrag/toode/nj2luiug8i8",
+  vintedUrl: "https://www.vinted.pl/items/9013505888-handmade-bag",
 },
 {
   id: 6,
@@ -201,9 +201,9 @@ export const products = [
   name: "Structured Corset",
   category: "tops",
   materialOrigin: "new-fabric",
-  date: "01.12.23",
-  price: 79.99,
-  size: "M",
+  date: "06.26",
+  price: 49.99,
+  size: "S",
   status: "In Stock",
 
   image: product6,
@@ -218,13 +218,12 @@ export const products = [
     "Made from new fabric and constructed from scratch.",
 
   measurements: {
-    waist: "80cm",
-    hips: "100cm",
-    length: "112cm",
+    width: "Unknown",
+    height: "Unknown",
   },
 
-  yagaUrl: "https://www.yaga.ee/exfrag",
-  vintedUrl: "https://www.vinted.pl/member/3129043410",
+  yagaUrl: "https://www.yaga.ee/exfrag/toode/e04u92vft4o",
+  vintedUrl: "https://www.vinted.pl/items/9064363254-handmade-corset",
 },
 {
   id: 7,
@@ -232,8 +231,8 @@ export const products = [
   name: "Reconstructed Flared Denim",
   category: "bottoms",
   materialOrigin: "reconstructed",
-  date: "01.12.23",
-  price: 79.99,
+  date: "02.26",
+  price: 59.99,
   size: "M",
   status: "In Stock",
 
@@ -249,13 +248,14 @@ export const products = [
     "Made from existing garments and rebuilt by hand.",
 
   measurements: {
-    waist: "80cm",
-    hips: "100cm",
-    length: "112cm",
+    waist: "84cm",
+    hips: "112cm",
+    length: "105cm",
+    Hem: "72cm",
   },
 
-  yagaUrl: "https://www.yaga.ee/exfrag",
-  vintedUrl: "https://www.vinted.pl/member/3129043410",
+  yagaUrl: "https://www.yaga.ee/exfrag/toode/pkpt7hr1uq",
+  vintedUrl: "https://www.vinted.pl/items/7902599386-archive-jeans",
 },
 {
   id: 8,
@@ -263,9 +263,9 @@ export const products = [
   name: "Distressed Denim",
   category: "bottoms",
   materialOrigin: "reconstructed",
-  date: "01.12.23",
-  price: 79.99,
-  size: "S",
+  date: "02.26",
+  price: 59.99,
+  size: "L",
   status: "In Stock",
 
   image: product8,
@@ -280,14 +280,14 @@ export const products = [
     "Crafted from existing garments and reimagined into a new one-of-one piece.",
 
   measurements: {
-    waist: "TBA",
-    hips: "TBA",
-    length: "TBA",
-    legOpening: "TBA",
+    waist: "88cm",
+    hips: "106cm",
+    length: "107cm",
+    Hem: "68cm",
   },
 
-  yagaUrl: "https://www.yaga.ee/exfrag/toode/tfd6ebrlrt",
-  vintedUrl: "https://www.vinted.pl/member/3129043410",
+  yagaUrl: "https://www.yaga.ee/exfrag/toode/it03ngj478",
+  vintedUrl: "https://www.vinted.pl/items/9184978931-distressed-denim",
 },
 {
   id: 9,
@@ -295,9 +295,9 @@ export const products = [
   name: "Faded Denim",
   category: "bottoms",
   materialOrigin: "reconstructed",
-  date: "01.12.23",
-  price: 79.99,
-  size: "S",
+  date: "02.26",
+  price: 59.99,
+  size: "M",
   status: "In Stock",
 
   image: product9,
@@ -312,14 +312,14 @@ export const products = [
     "Made from existing denim garments and reworked by hand.",
 
   measurements: {
-    waist: "TBA",
-    hips: "TBA",
-    length: "TBA",
-    legOpening: "TBA",
+    waist: "84cm",
+    hips: "106cm",
+    length: "112cm",
+    Hem: "60cm",
   },
 
-  yagaUrl: "https://www.yaga.ee/exfrag/toode/tfd6ebrlrt",
-  vintedUrl: "https://www.vinted.pl/member/3129043410",
+  yagaUrl: "https://www.yaga.ee/exfrag/toode/gr7kjeb5nr",
+  vintedUrl: "https://www.vinted.pl/items/9184984852-faded-denim",
 },
 {
   id: 10,
@@ -327,9 +327,9 @@ export const products = [
   name: "Wide Leg Denim",
   category: "bottoms",
   materialOrigin: "reconstructed",
-  date: "01.12.23",
-  price: 79.99,
-  size: "S",
+  date: "02.26",
+  price: 59.99,
+  size: "M",
   status: "In Stock",
 
   image: product10,
@@ -344,14 +344,14 @@ export const products = [
     "Created from existing garments and rebuilt into a new silhouette.",
 
   measurements: {
-    waist: "TBA",
-    hips: "TBA",
-    length: "TBA",
-    legOpening: "TBA",
+    waist: "92cm",
+    hips: "116cm",
+    length: "104cm",
+    Hem: "64cm",
   },
 
-  yagaUrl: "https://www.yaga.ee/exfrag/toode/tfd6ebrlrt",
-  vintedUrl: "https://www.vinted.pl/member/3129043410",
+  yagaUrl: "https://www.yaga.ee/exfrag/toode/0fjr22o9ps8",
+  vintedUrl: "https://www.vinted.pl/items/7902567195-archive-jeans",
 },
 {
   id: 11,
@@ -359,9 +359,9 @@ export const products = [
   name: "Reconstructed Denim",
   category: "bottoms",
   materialOrigin: "reconstructed",
-  date: "01.12.23",
-  price: 79.99,
-  size: "S",
+  date: "01.26",
+  price: 39.99,
+  size: "M",
   status: "In Stock",
 
   image: product11,
@@ -376,14 +376,14 @@ export const products = [
     "Made from existing denim garments and rebuilt into a new one-of-one piece.",
 
   measurements: {
-    waist: "TBA",
-    hips: "TBA",
-    length: "TBA",
-    legOpening: "TBA",
+    waist: "86cm",
+    hips: "106cm",
+    length: "100cm",
+    Hem: "60cm",
   },
 
-  yagaUrl: "https://www.yaga.ee/exfrag/toode/tfd6ebrlrt",
-  vintedUrl: "https://www.vinted.pl/member/3129043410",
+  yagaUrl: "https://www.yaga.ee/exfrag/toode/hev2qqvnr4o",
+  vintedUrl: "https://www.vinted.pl/items/9184992978-reconstructed-denim",
 },
 {
   id: 12,
@@ -391,8 +391,8 @@ export const products = [
   name: "Beaded Archive Bag",
   category: "bags",
   materialOrigin: "reconstructed",
-  date: "01.12.23",
-  price: 79.99,
+  date: "04.26",
+  price: 39.99,
   size: "S",
   status: "In Stock",
 
@@ -408,14 +408,12 @@ export const products = [
     "Made from existing materials and finished by hand.",
 
   measurements: {
-    waist: "TBA",
-    hips: "TBA",
-    length: "TBA",
-    legOpening: "TBA",
+    width: "Unknown",
+    height: "Unknown",
   },
 
-  yagaUrl: "https://www.yaga.ee/exfrag/toode/tfd6ebrlrt",
-  vintedUrl: "https://www.vinted.pl/member/3129043410",
+  yagaUrl: "https://www.yaga.ee/exfrag/toode/nlv1g8lrt28",
+  vintedUrl: "https://www.vinted.pl/items/8884465095-swag-bag",
 },
 
 
