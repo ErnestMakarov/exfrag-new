@@ -112,7 +112,7 @@ export default function Footer() {
 
           <div className="mt-6 flex min-w-0 flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-x-6">
             <a
-              href="https://www.instagram.com/exfrag"
+              href="https://www.instagram.com/exfrag.eu"
               target="_blank"
               rel="noopener noreferrer"
               className="transition-colors hover:text-white"
