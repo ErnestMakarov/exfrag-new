@@ -101,7 +101,7 @@ export default function CatalogPreview() {
         <div className="mt-12 text-center">
           <Link
             to="/catalog"
-            className="text-[11px] uppercase underline underline-offset-4 transition-opacity duration-300 hover:opacity-60"
+            className="text-[11px] uppercase font-bold underline underline-offset-4 transition-opacity duration-300 hover:opacity-60"
           >
             View all products
           </Link>
