@@ -16,6 +16,10 @@ import sold7 from "../assets/images/soldproducts/soldproduct7/1.png";
 import sold7second from "../assets/images/soldproducts/soldproduct7/2.png";
 import sold7third from "../assets/images/soldproducts/soldproduct7/3.png";
 
+import product9 from "../assets/products/product9/1.png";
+import product9second from "../assets/products/product9/2.png";
+import product9third from "../assets/products/product9/3.png";
+
 export const soldProducts = [
   {
     id: 101,
@@ -237,5 +241,37 @@ export const soldProducts = [
 
     yagaUrl: "",
     vintedUrl: "",
+  },
+  {
+    id: 109,
+    slug: "faded-denim",
+    name: "Faded Denim",
+    category: "bottoms",
+    materialOrigin: "reconstructed",
+    date: "02.26",
+    price: 59.99,
+    size: "M",
+    status: "Sold",
+  
+    image: product9,
+    images: [product9, product9second, product9third],
+  
+    description:
+      "Vintage denim transformed through controlled fading and distressing, creating a naturally aged archive appearance.",
+  
+    materials: "Reconstructed vintage denim",
+  
+    originDescription:
+      "Made from existing denim garments and reworked by hand.",
+  
+    measurements: {
+      waist: "84cm",
+      hips: "106cm",
+      length: "112cm",
+      Hem: "60cm",
+    },
+  
+    yagaUrl: "https://www.yaga.ee/exfrag/toode/gr7kjeb5nr",
+    vintedUrl: "https://www.vinted.pl/items/9184984852-faded-denim",
   },
 ];

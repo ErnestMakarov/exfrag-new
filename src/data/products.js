@@ -22,10 +22,6 @@ import product7third from "../assets/products/product7/3.png";
 import product8 from "../assets/products/product8/1.png";
 import product8second from "../assets/products/product8/2.png";
 
-import product9 from "../assets/products/product9/1.png";
-import product9second from "../assets/products/product9/2.png";
-import product9third from "../assets/products/product9/3.png";
-
 import product10 from "../assets/products/product10/1.png";
 import product10second from "../assets/products/product10/2.png";
 import product10third from "../assets/products/product10/3.png";
@@ -291,38 +287,6 @@ export const products = [
 },
 {
   id: 9,
-  slug: "faded-denim",
-  name: "Faded Denim",
-  category: "bottoms",
-  materialOrigin: "reconstructed",
-  date: "02.26",
-  price: 59.99,
-  size: "M",
-  status: "In Stock",
-
-  image: product9,
-  images: [product9, product9second, product9third],
-
-  description:
-    "Vintage denim transformed through controlled fading and distressing, creating a naturally aged archive appearance.",
-
-  materials: "Reconstructed vintage denim",
-
-  originDescription:
-    "Made from existing denim garments and reworked by hand.",
-
-  measurements: {
-    waist: "84cm",
-    hips: "106cm",
-    length: "112cm",
-    Hem: "60cm",
-  },
-
-  yagaUrl: "https://www.yaga.ee/exfrag/toode/gr7kjeb5nr",
-  vintedUrl: "https://www.vinted.pl/items/9184984852-faded-denim",
-},
-{
-  id: 10,
   slug: "wide-leg-denim",
   name: "Wide Leg Denim",
   category: "bottoms",
@@ -354,7 +318,7 @@ export const products = [
   vintedUrl: "https://www.vinted.pl/items/7902567195-archive-jeans",
 },
 {
-  id: 11,
+  id: 10,
   slug: "reconstructed-denim",
   name: "Reconstructed Denim",
   category: "bottoms",
@@ -386,7 +350,7 @@ export const products = [
   vintedUrl: "https://www.vinted.pl/items/9184992978-reconstructed-denim",
 },
 {
-  id: 12,
+  id: 11,
   slug: "beaded-archive-bag",
   name: "Beaded Archive Bag",
   category: "bags",
