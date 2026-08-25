@@ -28,7 +28,6 @@ export const soldProducts = [
     category: "tops",
     materialOrigin: "new-fabric",
     date: "05.26",
-    price: 42,
     size: "S",
     status: "Sold",
 
@@ -59,7 +58,6 @@ export const soldProducts = [
     category: "outerwear",
     materialOrigin: "reconstructed",
     date: "01.26",
-    price: 60,
     size: "S",
     status: "Sold",
 
@@ -91,7 +89,6 @@ export const soldProducts = [
     category: "bags",
     materialOrigin: "reconstructed",
     date: "01.26",
-    price: 40,
     size: "S",
     status: "Sold",
 
@@ -122,7 +119,6 @@ export const soldProducts = [
     category: "bags",
     materialOrigin: "reconstructed",
     date: "05.26",
-    price: 35,
     size: "M",
     status: "Sold",
 
@@ -153,7 +149,6 @@ export const soldProducts = [
     category: "bottoms",
     materialOrigin: "reconstructed",
     date: "02.26",
-    price: 80,
     size: "M",
     status: "Sold",
 
@@ -185,7 +180,6 @@ export const soldProducts = [
     category: "bottoms",
     materialOrigin: "reconstructed",
     date: "02.26",
-    price: 45,
     size: "L",
     status: "Sold",
 
@@ -217,7 +211,6 @@ export const soldProducts = [
     category: "bottoms",
     materialOrigin: "reconstructed",
     date: "03.26",
-    price: 80,
     size: "M",
     status: "Sold",
 
@@ -249,7 +242,6 @@ export const soldProducts = [
     category: "bottoms",
     materialOrigin: "reconstructed",
     date: "02.26",
-    price: 59.99,
     size: "M",
     status: "Sold",
   
