@@ -41,7 +41,7 @@ export const products = [
   category: "bottoms",
   materialOrigin: "reconstructed",
   date: "03.26",
-  price: 79.99,
+  price: 39.99,
   size: "M",
   status: "In Stock",
 
@@ -73,7 +73,7 @@ export const products = [
   category: "bottoms",
   materialOrigin: "reconstructed",
   date: "03.26",
-  price: 79.99,
+  price: 39.99,
   size: "M",
   status: "In Stock",
 
@@ -105,7 +105,7 @@ export const products = [
   category: "bottoms",
   materialOrigin: "reconstructed",
   date: "02.26",
-  price: 59.99,
+  price: 29.99,
   size: "M",
   status: "In Stock",
 
@@ -136,7 +136,7 @@ export const products = [
   category: "bottoms",
   materialOrigin: "reconstructed",
   date: "02.26",
-  price: 59.99,
+  price: 29.99,
   size: "L",
   status: "In Stock",
 
@@ -168,7 +168,7 @@ export const products = [
   category: "bags",
   materialOrigin: "reconstructed",
   date: "05.26",
-  price: 49.99,
+  price: 29.99,
   size: "L",
   status: "In Stock",
 
@@ -228,7 +228,7 @@ export const products = [
   category: "bottoms",
   materialOrigin: "reconstructed",
   date: "02.26",
-  price: 59.99,
+  price: 29.99,
   size: "M",
   status: "In Stock",
 
@@ -260,7 +260,7 @@ export const products = [
   category: "bottoms",
   materialOrigin: "reconstructed",
   date: "02.26",
-  price: 59.99,
+  price: 29.99,
   size: "L",
   status: "In Stock",
 
@@ -292,7 +292,7 @@ export const products = [
   category: "bottoms",
   materialOrigin: "reconstructed",
   date: "02.26",
-  price: 59.99,
+  price: 29.99,
   size: "M",
   status: "In Stock",
 
@@ -324,7 +324,7 @@ export const products = [
   category: "bottoms",
   materialOrigin: "reconstructed",
   date: "01.26",
-  price: 39.99,
+  price: 19.99,
   size: "M",
   status: "In Stock",
 
@@ -356,7 +356,7 @@ export const products = [
   category: "bags",
   materialOrigin: "reconstructed",
   date: "04.26",
-  price: 39.99,
+  price: 19.99,
   size: "S",
   status: "In Stock",
 
